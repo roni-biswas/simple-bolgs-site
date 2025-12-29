@@ -1,9 +1,15 @@
 import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <>
-      <h1 className="text-teal-400 font-bold text-2xl">Hello World!</h1>
+      {/* navbar section */}
+      <Navbar />
+      <main className="min-h-[calc(100vh-116px)]"></main>
+      {/* footer section */}
+      <Footer />
     </>
   );
 }
