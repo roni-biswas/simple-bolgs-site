@@ -18,8 +18,14 @@ function App() {
     });
   };
 
-  const handleMarkAsRead = (time) => {
+  const handleMarkAsRead = (id, time) => {
     setReadingCount(readingCount + time);
+    handleRemoveFromBookMark(id);
+  };
+
+  const handleRemoveFromBookMark = (id) => {
+    const isRemainingBookMarked = bookMarked.filter((item) => item.id !== id);
+    setBookMarked(isRemainingBookMarked);
   };
 
   return (
