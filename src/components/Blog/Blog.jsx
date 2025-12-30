@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
-const Blog = ({ blog, handleBookMark }) => {
-  const { title, cover, author_img, author, posted_date, hashtags } =
-    blog || {};
+const Blog = ({ blog, handleBookMark, handleMarkAsRead }) => {
+  const {
+    title,
+    cover,
+    author_img,
+    author,
+    posted_date,
+    hashtags,
+    reading_time,
+  } = blog || {};
 
   const [mark, setMarked] = useState(false);
 
@@ -42,7 +49,10 @@ const Blog = ({ blog, handleBookMark }) => {
             </span>
           ))}
         </div>
-        <button className="btn btn-accent mt-2 text-sm text-white font-bold">
+        <button
+          onClick={() => handleMarkAsRead(reading_time)}
+          className="btn btn-accent mt-2 text-sm text-white font-bold"
+        >
           Mark as read
         </button>
       </div>
