@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleBookMark }) => {
   const { title, cover, author_img, author, posted_date, hashtags } =
     blog || {};
 
-  const [bookmarked, setBookmarked] = useState(false);
+  const [mark, setMarked] = useState(false);
+
+  const handleBookMarked = (blog) => {
+    handleBookMark(blog);
+    setMarked(true);
+  };
 
   return (
     <div className="single-blog my-8 border-b border-b-gray-200 pb-5">
@@ -19,10 +24,10 @@ const Blog = ({ blog }) => {
           </div>
         </div>
         <button
-          onClick={() => setBookmarked(!bookmarked)}
+          onClick={() => handleBookMarked(blog)}
           className="cursor-pointer"
         >
-          {bookmarked ? <FaBookmark size={24} /> : <FaRegBookmark size={24} />}
+          {mark ? <FaBookmark size={24} /> : <FaRegBookmark size={24} />}
         </button>
       </div>
       <h1 className="text-2xl font-bold text-gray-800">{title}</h1>
